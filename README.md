@@ -3,7 +3,7 @@ my first mini simple program on python for fun.
 generating text based on markov chain  
 ~~pls dont read that shit!!~~  
 
-![image](material\image1.png)
+![image](material/image1.png)
 
 ## How to use:
 > clone the repo or download exe from releases  
