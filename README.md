@@ -1,5 +1,5 @@
 # MrkChn-0.1
-my first mini simple program on python for fun.  
+my first mini simple program on python with cli for fun.  
 generating text based on markov chain  
 ~~pls dont read that shit!!~~  
 
@@ -16,6 +16,6 @@ generating text based on markov chain
 * json_dump - saving dumped json model; bool
 * json_filename - saving dumped model in this file if json_dump is true
 * gen_num - count of generation for one time
-* launguage - idk, mb in feature
+* language - en or ru
 
 **how values of config.ini are parsed you can find in classes/ConfigParser.py**

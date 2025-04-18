@@ -1,11 +1,13 @@
 import configparser
 import os
+from .Language import Language
 
 class ConfigParser():
     def __init__(self, main):
         self.check_config()
         self.main = main
-        
+        self.language = Language(self, self.main)
+
     def create_config(self):
         with open('config.ini', 'w', encoding='utf-8') as file:
             file.write("""[Settings]
@@ -15,7 +17,7 @@ txt_filename = kitten_anekdots.txt
 json_dump = False
 json_filename = dumped_markov.json
 gen_num = 1
-launguage = None""")
+language = None""")
             
     def check_config(self):
         if not os.path.exists('config.ini'):
@@ -72,19 +74,23 @@ launguage = None""")
                         return int(sue)
                 self.write_in_config(key, '1')
                 return 1
-            case 'launguage':
+            case 'language':
                 if sue.lower() not in ('en', 'ru'):
                     self.write_in_config(key, 'None')
                     return 'None'
                 return sue
     
     def init_config(self):
-        self.config = configparser.ConfigParser()
-        self.config.read('config.ini', encoding='utf-8')
-        self.seed = self.parse_data('Settings', 'seed')
-        self.text_len = self.parse_data('Settings', 'text_len')
-        self.txt_filename = self.parse_data('Settings', 'txt_filename')
-        self.json_dump = self.parse_data('Settings', 'json_dump')
-        self.json_filename = self.parse_data('Settings', 'json_filename')
-        self.gen_num = self.parse_data('Settings', 'gen_num')
-        self.launguage = self.parse_data('Settings', 'launguage')
+        try:
+            self.config = configparser.ConfigParser()
+            self.config.read('config.ini', encoding='utf-8')
+            self.seed = self.parse_data('Settings', 'seed')
+            self.text_len = self.parse_data('Settings', 'text_len')
+            self.txt_filename = self.parse_data('Settings', 'txt_filename')
+            self.json_dump = self.parse_data('Settings', 'json_dump')
+            self.json_filename = self.parse_data('Settings', 'json_filename')
+            self.gen_num = self.parse_data('Settings', 'gen_num')
+            self.language = self.parse_data('Settings', 'language')
+        except Exception as e:
+            self.create_config()
+            self.main.title(self.language.string[self.language.get_lang()]["something_went_wrong"].format(e=e))

@@ -1,14 +1,14 @@
 import random
 
 class MarkovChain():
-    def __init__(self, config, main, probabilities):
+    def __init__(self, config, probabilities, main, language):
         self.config = config
         self.probabilities = probabilities
         self.main = main
+        self.language = language
         self.seed = config.seed if config.seed in (list(probabilities.keys())) else '<START>'
         self.text_len = config.text_len
         self.gen_num = config.gen_num
-        self.launguage = config.launguage
     
     def cycle(self, generated_text, current_word, probabilities):
         if self.text_len is False:
@@ -29,7 +29,7 @@ class MarkovChain():
         generated_text = [current_word]
         while current_word != '<END>' or infinity_mode:
             self.main.title()
-            print(f'Text: {" ".join(generated_text)}\n\nCurrent word is "{current_word}".\nList next words:')
+            print(self.language.string[self.language.get_lang()]["current_word_is"].format(generated_text = " ".join(generated_text), current_word = current_word))
             words = []
             for word, chance in zip((probabilities[current_word].keys()), (probabilities[current_word].values())):
                 words.append([word, chance])
@@ -39,7 +39,7 @@ class MarkovChain():
                 print(f'{i}. {word[0]} ({round((word[1] * 100), 2)}%)')
                 i += 1
             try:
-                choice = input('Enter word number(type "exit" for exit): ')
+                choice = input(self.language.string[self.language.get_lang()]["enter_word_number"])
                 if choice == 'exit':
                     break
                 next_word = list([a[0] for a in words])[int(choice) - 1] if int(choice) > 0 else list([a[0] for a in words])[int(choice)]
@@ -50,4 +50,4 @@ class MarkovChain():
             if generated_text[0] == '<START>':
                 del generated_text[0]
         self.main.title()
-        print(f'Generated text:\n{" ".join(generated_text)}')
+        print(self.language.string[self.language.get_lang()]["generated_text"].format(generated_text = " ".join(generated_text)))

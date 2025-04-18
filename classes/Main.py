@@ -1,5 +1,5 @@
 from .ConfigParser import ConfigParser
-from .Launguage import Launguage
+from .Language import Language
 from .TextProcessor import TextProcessor
 from .MarkovChain import MarkovChain
 import os
@@ -8,17 +8,17 @@ import os
 class Main():
     def __init__(self):
         self.config = ConfigParser(self)
-        self.launguage = Launguage(self.config, self)
+        self.language = self.config.language
         self.regele = '================================'
     
     def menu(self):
         self.config.check_config()
-        if self.config.launguage not in ('ru', 'en') or not self.config.launguage:
-            self.launguage.change_lang()
-            input('Press enter to continue...')
+        if self.config.language not in ('ru', 'en') or not self.config.language:
+            self.language.change_lang()
+            input(self.language.string[self.language.get_lang()]["press_enter"])
             self.title()
         self.config.check_config()
-        menu_choice = input(f'1 - Autogeneration\n2 - Manual generation\n{self.regele}\n101 - Change lang\n0 - Exit\n\n\nYour choice: ')
+        menu_choice = input(self.language.string[self.language.get_lang()]["menu_input"])
         return menu_choice
 
     def main(self, some_notif = None):
@@ -32,31 +32,31 @@ class Main():
                         self.title()
                         for i in range(self.config.gen_num):
                             print(f'{i + 1}.', self.markov_chain.generate_text(self.text.probabilities))
-                        input('Press enter to continue...')
+                        input(self.language.string[self.language.get_lang()]["press_enter"])
                         self.title()
                     case '2':
                         self.create_model()
                         self.title()
-                        self.infinity_mode = input('Infinity mode(y/n): ')
+                        self.infinity_mode = input(self.language.string[self.language.get_lang()]["infinity_mode_input"])
                         match self.infinity_mode:
                             case 'y':
                                 self.infinity_mode = True
                             case _:
                                 self.infinity_mode = False
                         self.markov_chain.manual_generate_text(self.text.probabilities, self.infinity_mode)
-                        input('Press enter to continue...')
+                        input(self.language.string[self.language.get_lang()]["press_enter"])
                         self.title()
                     case '101':
                         self.title()
-                        self.launguage.change_lang()
-                        input('Press enter to continue...')
+                        self.language.change_lang()
+                        input(self.language.string[self.language.get_lang()]["press_enter"])
                         self.title()
                     case '0':
                         break
                     case _:
-                        self.title('Wrong mode, please retry again')
+                        self.title(self.language.string[self.language.get_lang()]["wrong_input"])
             except Exception as e:
-                self.title(f'Something went wrong: {e}')
+                self.title(self.language.string[self.language.get_lang()]["something_went_wrong"].format(e=e))
                 
     def title(self, some_notif = None):
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -77,5 +77,5 @@ class Main():
         
     def create_model(self):
         self.config.check_config()
-        self.text = TextProcessor(self.config, self)
-        self.markov_chain = MarkovChain(self.config, self, self.text.probabilities)
+        self.text = TextProcessor(self.config, self, self.language)
+        self.markov_chain = MarkovChain(self.config, self.text.probabilities, self, self.language)

@@ -2,25 +2,29 @@ import sys
 import os
 import json
 
-class Launguage():
+class Language():
     def __init__(self, config, main):
         self.config = config
-        self.lang = self.config.launguage
-        self.languages = self.load_json()
+        self.lang = self.config.language
+        self.string = self.load_json()
         self.main = main
+        
+    def get_lang(self):
+        return self.lang if self.lang in ('ru', 'en') else 'en'
     
     def change_lang(self):
         while True:
-            lang = input('1 - Русский\n2 - English\n\nChoose the lang: ')
+            lang = input(self.string[self.get_lang()]["lang_choice"])
             match lang:
                 case '1':
-                    self.config.write_in_config('launguage', 'ru')
+                    self.config.write_in_config('language', 'ru')
+                    self.lang = 'ru'
                 case '2':
-                    self.config.write_in_config('launguage', 'en')
+                    self.config.write_in_config('language', 'en')
+                    self.lang = 'en'
                 case _:
-                    self.main.title('Wrong launguage!')
+                    self.main.title(self.string[self.get_lang()]["wrong_input"])
                     continue
-            self.lang = lang
             break
             
         

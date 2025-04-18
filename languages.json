@@ -1,1 +1,24 @@
-{}
+{
+    "en": {
+        "menu_input": "1 - Autogeneration\n2 - Manual generation\n101 - Change language\n0 - Exit\n\n\nYour choice: ",
+        "infinity_mode_input": "Infinity mode?(y/n): ",
+        "wrong_input": "Incorrect input, please retry again",
+        "press_enter": "Press Enter to continue...",
+        "lang_choice": "1 - Russian\n2 - English\n\nChoose the lang: ",
+        "something_went_wrong": "Something went wrong: {e}",
+        "current_word_is": "Text: {generated_text}\n\nCurrent word is \"{current_word}\".\nList next words:",
+        "enter_word_number": "Enter word number(type \"exit\" for exit): ",
+        "generated_text": "Generated text:\n{generated_text}"
+    },
+    "ru": {
+        "menu_input": "1 - Автогенерация\n2 - Ручная генерация\n101 - Изменить язык\n0 - Выход\n\n\nВаш выбор: ",
+        "infinity_mode_input": "Бесконечный режим?(y/n): ",
+        "wrong_input": "Некорректный ввод, попробуйте ещё раз",
+        "press_enter": "Для продолжения нажмите Enter...",
+        "lang_choice": "1 - Русский\n2 - Английский\n\nВыберите язык: ",
+        "something_went_wrong": "Что-то пошло не так: {e}",
+        "current_word_is": "Текст: {generated_text}\n\nТекущее слово это \"{current_word}\".\nСписок следующих слов:",
+        "enter_word_number": "Введите номер числа(для выхода введите \"exit\"): ",
+        "generated_text": "Сгенерированый текст:\n{generated_text}"
+    }
+}

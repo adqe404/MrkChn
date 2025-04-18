@@ -4,7 +4,7 @@ import json
 import time
 
 class TextProcessor():
-    def __init__(self, config, main):
+    def __init__(self, config, main, language):
         self.txt_filename = config.txt_filename
         self.json_dump = config.json_dump
         self.json_filename = config.json_filename
@@ -13,6 +13,7 @@ class TextProcessor():
         if self.json_dump == True:
             self.model_export()
         self.main = main
+        self.language = language
         
     def read_file(self, txt_filename):
         text = open(f'{txt_filename}', 'r', encoding='utf-8').read().lower()
