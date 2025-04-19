@@ -14,7 +14,6 @@ class MarkovChain():
         if self.text_len is False:
             return '<END>' != current_word if '<END>' in probabilities.keys() else len(generated_text) < int(random.randint(2,10)) + 1
         return len(generated_text) < int(self.text_len) + 1 if self.seed == '<START>' else len(generated_text) < int(self.text_len)
-        
     def generate_text(self, probabilities: dict):
         current_word = self.seed
         generated_text = [current_word]
@@ -39,7 +38,7 @@ class MarkovChain():
                 print(f'{i}. {word[0]} ({round((word[1] * 100), 2)}%)')
                 i += 1
             try:
-                choice = input(self.language.string[self.language.get_lang()]["enter_word_number"])
+                choice = self.main.input_with_check(self.language.string[self.language.get_lang()]["enter_word_number"])
                 if choice == 'exit':
                     break
                 next_word = list([a[0] for a in words])[int(choice) - 1] if int(choice) > 0 else list([a[0] for a in words])[int(choice)]

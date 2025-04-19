@@ -1,11 +1,9 @@
 __pycache__
-kitten_anekdots.txt
-test_words.txt
+*.txt
 dumped_jsons
 for tests.py
 dist
 build
 mrkchm-vol2.py
-mrkchm-vol2.spec
 *.spec
-config.ini
+*.ini

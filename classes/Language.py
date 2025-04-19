@@ -14,7 +14,7 @@ class Language():
     
     def change_lang(self):
         while True:
-            lang = input(self.string[self.get_lang()]["lang_choice"])
+            lang = self.main.input_with_check(self.string[self.get_lang()]["lang_choice"])
             match lang:
                 case '1':
                     self.config.write_in_config('language', 'ru')

@@ -17,7 +17,8 @@ txt_filename = kitten_anekdots.txt
 json_dump = False
 json_filename = dumped_markov.json
 gen_num = 1
-language = None""")
+language = None
+kitties_title = True""")
             
     def check_config(self):
         if not os.path.exists('config.ini'):
@@ -79,6 +80,12 @@ language = None""")
                     self.write_in_config(key, 'None')
                     return 'None'
                 return sue
+            case 'kitties_title':
+                if self.is_boolean(sue):
+                    return self.config.getboolean(settings, key)
+                else:
+                    self.write_in_config(key, 'False')
+                    return False
     
     def init_config(self):
         try:
@@ -91,6 +98,7 @@ language = None""")
             self.json_filename = self.parse_data('Settings', 'json_filename')
             self.gen_num = self.parse_data('Settings', 'gen_num')
             self.language = self.parse_data('Settings', 'language')
+            self.kitties_title = self.parse_data('Settings', 'kitties_title')
         except Exception as e:
             self.create_config()
             self.main.title(self.language.string[self.language.get_lang()]["something_went_wrong"].format(e=e))
