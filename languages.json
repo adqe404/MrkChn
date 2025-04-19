@@ -1,27 +1,36 @@
 {
     "en": {
-        "menu_input": "1 - Autogeneration\n2 - Manual generation\n101 - Change language\n0 - Exit\n\n\nYour choice: ",
-        "infinity_mode_input": "Infinity mode?(y/n): ",
-        "wrong_input": "Incorrect input, please retry again",
-        "press_enter": "Press Enter to continue...",
-        "lang_choice": "1 - Russian\n2 - English\n\nChoose the lang: ",
-        "something_went_wrong": "Something went wrong: {e}",
-        "current_word_is": "Text: {generated_text}\n\nCurrent word is \"{current_word}\".\nList next words:",
-        "enter_word_number": "Enter word number(type \"exit\" for exit): ",
-        "generated_text": "Generated text:\n{generated_text}"
+        "menu_input": "[yellow1]1[/yellow1] - Autogeneration\n[yellow1]2[/yellow1] - Manual generation\n[yellow1]3[/yellow1] - Export model\n[yellow1]4[/yellow1] - Export tokens\n{regele}\n[yellow1]101[/yellow1] - Change language\n[yellow1]0[/yellow1] - Exit\n\n\n[yellow1]>>[/yellow1] [blink]Your choice:[/blink] ",
+        "infinity_mode_input": "[yellow1]>>[/yellow1] Infinity mode?[gold1](y/n)[/gold1]: ",
+        "wrong_input": "[bright_red]Incorrect input, please retry again[/bright_red]",
+        "press_enter": "\n\n[bold green]Press Enter to continue...[/bold green]",
+        "lang_choice": "[yellow1]1[/yellow1] - Russian\n[yellow1]2[/yellow1] - English\n\n[yellow1]>>[/yellow1] Choose the lang: ",
+        "something_went_wrong": "[bright_red]Something went wrong: {e}[/bright_red]",
+        "current_word_is": "Text:\n[gold1]{generated_text}[/gold1]\n\nCurrent word is [gold1]\"{current_word}\"[/gold1].\nList next words:",
+        "enter_word_number": "\n[yellow1]>>[/yellow1] Enter word number(type \"exit\" for exit): ",
+        "generated_text": "Generated text:\n[gold1]{generated_text}[/gold1]",
+        "json_file_name_input": "[yellow1]>>[/yellow1] Enter json file name: ",
+        "model_successfully_exported": "[bold green]Model successfully exported in {json_path}[/bold green]",
+        "tokens_file_name_input": "[yellow1]>>[/yellow1] Enter txt file name: ",
+        "tokens_successfully_exported": "[bold green]Tokens successfully exported in {tokens_path}[/bold green]"
+    
     },
     "ru": {
-        "menu_input": "1 - Автогенерация\n2 - Ручная генерация\n101 - Изменить язык\n0 - Выход\n\n\nВаш выбор: ",
-        "infinity_mode_input": "Бесконечный режим?(y/n): ",
-        "wrong_input": "Некорректный ввод, попробуйте ещё раз",
-        "press_enter": "Для продолжения нажмите Enter...",
-        "lang_choice": "1 - Русский\n2 - Английский\n\nВыберите язык: ",
-        "something_went_wrong": "Что-то пошло не так: {e}",
-        "current_word_is": "Текст: {generated_text}\n\nТекущее слово это \"{current_word}\".\nСписок следующих слов:",
-        "enter_word_number": "Введите номер числа(для выхода введите \"exit\"): ",
-        "generated_text": "Сгенерированый текст:\n{generated_text}"
+        "menu_input": "[yellow1]1[/yellow1] - Автогенерация\n[yellow1]2[/yellow1] - Ручная генерация\n[yellow1]3[/yellow1] - Экспортировать модель\n[yellow1]4[/yellow1] - Экспорт токенов\n{regele}\n[yellow1]101[/yellow1] - Изменить язык\n[yellow1]0[/yellow1] - Выход\n\n\n[yellow1]>>[/yellow1] [blink]Ваш выбор:[/blink] ",
+        "infinity_mode_input": "[yellow1]>>[/yellow1] Бесконечный режим?[gold1](y/n)[/gold1]: ",
+        "wrong_input": "[bright_red]Некорректный ввод, попробуйте ещё раз[/bright_red]",
+        "press_enter": "\n\n[bold green]Для продолжения нажмите Enter...[/bold green]",
+        "lang_choice": "[yellow1]1[/yellow1] - Русский\n[yellow1]2[/yellow1] - Английский\n\n[yellow1]>>[/yellow1] Выберите язык: ",
+        "something_went_wrong": "[bright_red]Что-то пошло не так: {e}[/bright_red]",
+        "current_word_is": "Текст:\n[gold1]{generated_text}[/gold1]\n\nТекущее слово это [gold1]\"{current_word}\"[/gold1].\nСписок следующих слов:",
+        "enter_word_number": "\n[yellow1]>>[/yellow1] Введите номер числа(для выхода введите \"exit\"): ",
+        "generated_text": "Сгенерированый текст:\n[gold1]{generated_text}[/gold1]",
+        "json_file_name_input": "[yellow1]>>[/yellow1] Введите имя выходного json файла: ",
+        "model_successfully_exported": "[bold green]Модель успешно экспортирована в {json_path}[/bold green]",
+        "tokens_file_name_input": "[yellow1]>>[/yellow1] Введите имя выходного txt файла: ",
+        "tokens_successfully_exported": "[bold green]Токены успешно экспортированы в {tokens_path}[/bold green]"
     },
     "kitties": {
-        "kitties": ["ฅ^•ﻌ•^ฅ", "/ᐠ – ˕ -マ", "(≖⩊≖)", "≽^- ˕ -^≼", "≽^•⩊•^≼", "/ᐠ. .ᐟ\\", "(=^.⩊.^=)", "^⇀ﻌ↼^", "{`⎚⩊⎚´}", "ㅇㅅㅇ", "ᨐᵉᵒʷ", "₍^⸝⸝> ·̫ <⸝⸝ ^₎", "≽ܫ≼", "◕⩊◕", "(=＾•ﻌ•＾=)", "(=ↀωↀ=)", "(ฅ｡•ㅅ•｡ฅ)"]
+        "kitties": ["ฅ^•ﻌ•^ฅ", "/ᐠ – ˕ -マ", "(≖⩊≖)", "≽^- ˕ -^≼", "≽^•⩊•^≼", "(=^.⩊.^=)", "^⇀ﻌ↼^", "{`⎚⩊⎚´}", "ㅇㅅㅇ", "ᨐᵉᵒʷ", "₍^⸝⸝> ·̫ <⸝⸝ ^₎", "≽ܫ≼", "◕⩊◕", "(=＾•ﻌ•＾=)", "(=ↀωↀ=)", "(ฅ｡•ㅅ•｡ฅ)"]
     }
 }

@@ -1,4 +1,8 @@
 import random
+from rich.console import Console
+console = Console(highlight=False)
+rinput = console.input
+rprint = console.print
 
 class MarkovChain():
     def __init__(self, config, probabilities, main, language):
@@ -28,14 +32,14 @@ class MarkovChain():
         generated_text = [current_word]
         while current_word != '<END>' or infinity_mode:
             self.main.title()
-            print(self.language.string[self.language.get_lang()]["current_word_is"].format(generated_text = " ".join(generated_text), current_word = current_word))
+            rprint(self.language.string[self.language.get_lang()]["current_word_is"].format(generated_text = " ".join(generated_text), current_word = current_word))
             words = []
             for word, chance in zip((probabilities[current_word].keys()), (probabilities[current_word].values())):
                 words.append([word, chance])
             words = sorted(words, key=lambda x: x[1], reverse=True)
             i = 1
             for word in words:
-                print(f'{i}. {word[0]} ({round((word[1] * 100), 2)}%)')
+                rprint(f'{i}. {word[0]} ({round((word[1] * 100), 2)}%)')
                 i += 1
             try:
                 choice = self.main.input_with_check(self.language.string[self.language.get_lang()]["enter_word_number"])
@@ -49,4 +53,4 @@ class MarkovChain():
             if generated_text[0] == '<START>':
                 del generated_text[0]
         self.main.title()
-        print(self.language.string[self.language.get_lang()]["generated_text"].format(generated_text = " ".join(generated_text)))
+        rprint(self.language.string[self.language.get_lang()]["generated_text"].format(generated_text = " ".join(generated_text)))

@@ -1,6 +1,10 @@
 import sys
 import os
 import json
+from rich.console import Console
+console = Console(highlight=False)
+rinput = console.input
+rprint = console.print
 
 class Language():
     def __init__(self, config, main):

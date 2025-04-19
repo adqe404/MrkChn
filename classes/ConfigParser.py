@@ -1,6 +1,10 @@
 import configparser
 import os
 from .Language import Language
+from rich.console import Console
+console = Console(highlight=False)
+rinput = console.input
+rprint = console.print
 
 class ConfigParser():
     def __init__(self, main):
@@ -14,8 +18,6 @@ class ConfigParser():
 seed = <START>
 text_len = False
 txt_filename = kitten_anekdots.txt
-json_dump = False
-json_filename = dumped_markov.json
 gen_num = 1
 language = None
 kitties_title = True""")
@@ -58,17 +60,6 @@ kitties_title = True""")
                     self.write_in_config(key, 'text.txt')
                     return 'text.txt'
                 return sue if sue[-4:] == '.txt' else sue + '.txt'
-            case 'json_dump':
-                if self.is_boolean(sue):
-                    return self.config.getboolean(settings, key)
-                else:
-                    self.write_in_config(key, 'False')
-                    return False
-            case 'json_filename':
-                if self.is_boolean(sue) or self.is_none(sue):
-                    self.write_in_config(key, 'probabilities.json')
-                    return 'probabilities.json'
-                return sue if sue[-5:] != '.json' else sue[:-5]
             case 'gen_num':
                 if sue.isdigit():
                     if int(sue) > 0:
@@ -94,8 +85,6 @@ kitties_title = True""")
             self.seed = self.parse_data('Settings', 'seed')
             self.text_len = self.parse_data('Settings', 'text_len')
             self.txt_filename = self.parse_data('Settings', 'txt_filename')
-            self.json_dump = self.parse_data('Settings', 'json_dump')
-            self.json_filename = self.parse_data('Settings', 'json_filename')
             self.gen_num = self.parse_data('Settings', 'gen_num')
             self.language = self.parse_data('Settings', 'language')
             self.kitties_title = self.parse_data('Settings', 'kitties_title')
