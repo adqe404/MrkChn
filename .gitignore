@@ -8,3 +8,5 @@ mrkchm-vol2.py
 *.spec
 *.ini
 tokens
+test_txts
+venv

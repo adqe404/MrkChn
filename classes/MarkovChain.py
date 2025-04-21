@@ -1,5 +1,7 @@
 import random
 from rich.console import Console
+from rich.table import Table
+from rich.box import ROUNDED
 console = Console(highlight=False)
 rinput = console.input
 rprint = console.print
@@ -37,13 +39,16 @@ class MarkovChain():
             for word, chance in zip((probabilities[current_word].keys()), (probabilities[current_word].values())):
                 words.append([word, chance])
             words = sorted(words, key=lambda x: x[1], reverse=True)
-            i = 1
-            for word in words:
-                rprint(f'{i}. {word[0]} ({round((word[1] * 100), 2)}%)')
-                i += 1
+            table = Table(box = ROUNDED)
+            table.add_column("№")
+            table.add_column(self.language.string[self.language.get_lang()]["word"])
+            table.add_column(self.language.string[self.language.get_lang()]["probability"])
+            for i, word in enumerate(words, start=1):
+                table.add_row(str(i), word[0], f'{round((word[1] * 100), 2)}%')
+            rprint(table)
             try:
                 choice = self.main.input_with_check(self.language.string[self.language.get_lang()]["enter_word_number"])
-                if choice == 'exit':
+                if choice.lower() in ('exit', '0'):
                     break
                 next_word = list([a[0] for a in words])[int(choice) - 1] if int(choice) > 0 else list([a[0] for a in words])[int(choice)]
             except:

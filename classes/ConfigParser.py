@@ -1,5 +1,8 @@
 import configparser
 import os
+import platform
+import re
+import random
 from .Language import Language
 from rich.console import Console
 console = Console(highlight=False)
@@ -54,6 +57,10 @@ kitties_title = True""")
                 if sue.isdigit():
                     if int(sue) > 0:
                         return int(sue)
+                elif re.match(r'^([1-9][0-9]*)-([1-9][0-9]*)$', sue):
+                    first, second = map(int, sue.split('-'))
+                    if first < second: 
+                        return random.randint(first, second)
                 return False      
             case 'txt_filename':
                 if self.is_boolean(sue) or self.is_none(sue):
@@ -64,6 +71,10 @@ kitties_title = True""")
                 if sue.isdigit():
                     if int(sue) > 0:
                         return int(sue)
+                elif re.match(r'^([1-9][0-9]*)-([1-9][0-9]*)$', sue):
+                    first, second = map(int, sue.split('-'))
+                    if first < second:
+                        return random.randint(first, second)
                 self.write_in_config(key, '1')
                 return 1
             case 'language':
@@ -91,3 +102,11 @@ kitties_title = True""")
         except Exception as e:
             self.create_config()
             self.main.title(self.language.string[self.language.get_lang()]["something_went_wrong"].format(e=e))
+
+    def user_open_file_config(self):
+        if platform.system() == "Windows":
+            os.startfile('config.ini')
+        elif platform.system() == "Darwin":
+            os.system(f'open "config.ini"')
+        else:
+            os.system(f'xdg-open "config.ini"')

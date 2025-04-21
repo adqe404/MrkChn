@@ -1,4 +1,4 @@
-# MrkChn-0.4
+# MrkChn-0.5
 my first mini simple program on python with cli for fun.  
 generating text based on markov chain  
 ~~pls dont read that shit!!~~  
@@ -7,7 +7,7 @@ generating text based on markov chain
 
 ## How to use:
 > clone the repo or download exe from releases  
-> pip install -r requirements.txt
+> pip install -r requirements.txt  
 > in path executable file put any txt file with text  
 > after first file start, code create config.ini file  
 ### config.ini

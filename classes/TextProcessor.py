@@ -42,7 +42,7 @@ class TextProcessor():
             next_words = list(probabilities[current_word].keys())
             total = sum(probabilities[current_word].values())
             for next_word in next_words:
-                probabilities[current_word][next_word] = round((probabilities[current_word][next_word]/total), 5) # Округление: 5 знаков после запятой
+                probabilities[current_word][next_word] = round((probabilities[current_word][next_word]/total), 10) # Округление: 5 знаков после запятой
         if '<END>' in probabilities['<START>'].keys():
             del probabilities['<START>']['<END>']
         return probabilities

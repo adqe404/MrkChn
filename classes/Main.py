@@ -39,7 +39,7 @@ class Main():
                         self.create_model()
                         self.title()
                         for i in range(self.config.gen_num):
-                            print(f'{i + 1}.', self.markov_chain.generate_text(self.text.probabilities))
+                            rprint(f'[gold1]{i + 1}.[/gold1]', self.markov_chain.generate_text(self.text.probabilities))
                         self.input_with_check(self.language.string[self.language.get_lang()]["press_enter"])
                         self.title()
                     case '2':
@@ -75,6 +75,12 @@ class Main():
                         self.language.change_lang()
                         self.input_with_check(self.language.string[self.language.get_lang()]["press_enter"])
                         self.title()
+                    case '102':
+                        self.title()
+                        self.config.user_open_file_config()
+                        rprint(self.language.string[self.language.get_lang()]["config_successfully_opened"])
+                        self.input_with_check(self.language.string[self.language.get_lang()]["press_enter"])
+                        self.title()
                     case '0':
                         break
                     case _:
@@ -85,13 +91,13 @@ class Main():
     def title(self, some_notif = None):
         os.system('cls' if os.name == 'nt' else 'clear')
         rprint(r"""[bold green]
-     __  __      _            ____ _           
-    |  \/  |_ __| | ____   __/ ___| |__  _ __  
-    | |\/| | '__| |/ /\ \ / / |   | '_ \| '_ \ 
-    | |  | | |  |   <  \ V /| |___| | | | | | |
-    |_|  |_|_|  |_|\_\  \_/  \____|_| |_|_| |_|
+        __  __      _     ____ _           
+       |  \/  |_ __| | __/ ___| |__  _ __  
+       | |\/| | '__| |/ / |   | '_ \| '_ \ 
+       | |  | | |  |   <| |___| | | | | | |
+       |_|  |_|_|  |_|\_\\____|_| |_|_| |_|
 
-        Created by adqe404.
+        Created by adqe404 :D
         GitHub: [link=https://github.com/adqe404]github.com/adqe404/MrkChn[/link][/bold green]
         """)
         
