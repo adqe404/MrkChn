@@ -5,6 +5,8 @@ import re
 import random
 from .Language import Language
 from rich.console import Console
+from rich.table import Table
+from rich.box import ROUNDED
 console = Console(highlight=False)
 rinput = console.input
 rprint = console.print
@@ -97,7 +99,7 @@ kitties_title = True""")
             self.text_len = self.parse_data('Settings', 'text_len')
             self.txt_filename = self.parse_data('Settings', 'txt_filename')
             self.gen_num = self.parse_data('Settings', 'gen_num')
-            self.language = self.parse_data('Settings', 'language')
+            self.language_data = self.parse_data('Settings', 'language')
             self.kitties_title = self.parse_data('Settings', 'kitties_title')
         except Exception as e:
             self.create_config()
@@ -110,3 +112,27 @@ kitties_title = True""")
             os.system(f'open "config.ini"')
         else:
             os.system(f'xdg-open "config.ini"')
+            
+    def change_values_in_config(self):
+        while True:
+            try:
+                rprint(self.language.string[self.language.get_lang()]["current_config_values"].format(config = open('config.ini', 'r', encoding='utf-8').read()))
+                choices = ['seed', 'text_len', 'txt_filename', 'gen_num', 'language', 'kitties_title']
+                table = Table(box = ROUNDED)
+                table.add_column("№", style='yellow1')
+                table.add_column(self.language.string[self.language.get_lang()]["keys"])
+                for i, choice in enumerate(choices, start=1):
+                    table.add_row(str(i), choice)
+                rprint(table)
+                choice = self.main.input_with_check(self.language.string[self.language.get_lang()]["your_choice_config"])
+                if choice.lower() in ('exit', '0'): break
+                if int(choice) in range(1, 7):
+                    index = int(choice) - 1
+                    value = self.main.input_with_check(self.language.string[self.language.get_lang()]["enter_new_config_value"].format(config_key = choices[index]))
+                    self.write_in_config(choices[index], value)
+                    rprint(self.language.string[self.language.get_lang()]["config_value_successfully_updated"].format(config_key = choices[index], config_value = value))
+                    self.main.input_with_check(self.language.string[self.language.get_lang()]["press_enter"])
+                self.main.title()
+            except:
+                self.main.title(self.language.string[self.language.get_lang()]["wrong_input"])
+                    

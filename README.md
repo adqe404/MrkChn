@@ -1,4 +1,4 @@
-# MrkChn-0.5
+# MrkChn-0.6
 my first mini simple program on python with cli for fun.  
 generating text based on markov chain  
 ~~pls dont read that shit!!~~  

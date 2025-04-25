@@ -9,7 +9,7 @@ rprint = console.print
 class Language():
     def __init__(self, config, main):
         self.config = config
-        self.lang = self.config.language
+        self.set_lang()
         self.string = self.load_json()
         self.main = main
         
@@ -43,3 +43,6 @@ class Language():
         json_path = self.get_resource_path('languages.json')
         with open(json_path, 'r', encoding='utf-8') as f:
             return json.load(f)
+        
+    def set_lang(self):
+        self.lang = self.config.language_data

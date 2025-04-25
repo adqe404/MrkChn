@@ -15,14 +15,16 @@ class Main():
         self.config = ConfigParser(self)
         self.language = self.config.language
         
-    def input_with_check(self, text, rich_input = True):
+    def input_with_check(self, text = None, rich_input = True):
         input_text = rinput(text) if rich_input else input(text)
         self.config.check_config()
+        self.language.set_lang()
         return input_text
 
     def menu(self):
         self.config.check_config()
-        if self.config.language not in ('ru', 'en') or not self.config.language:
+        self.language.set_lang()
+        if self.config.language_data not in ('ru', 'en') or not self.config.language_data:
             self.language.change_lang()
             self.input_with_check(self.language.string[self.language.get_lang()]["press_enter"])
             self.title()
@@ -81,6 +83,11 @@ class Main():
                         rprint(self.language.string[self.language.get_lang()]["config_successfully_opened"])
                         self.input_with_check(self.language.string[self.language.get_lang()]["press_enter"])
                         self.title()
+                    case '103':
+                        self.title()
+                        self.config.change_values_in_config()
+                        self.input_with_check(self.language.string[self.language.get_lang()]["press_enter"])
+                        self.title()
                     case '0':
                         break
                     case _:
@@ -101,15 +108,16 @@ class Main():
         GitHub: [link=https://github.com/adqe404]github.com/adqe404/MrkChn[/link][/bold green]
         """)
         
-        notif = random.choice(self.language.string["kitties"]["kitties"]) if self.config.kitties_title else 'mud blood and poison'
+        notif = random.choice(self.language.string["kitties"]["kitties"]) if self.config.kitties_title else 'no kitties title :('
         width = 50
-        self.regele = f'[white]{"=" * width}[white]'
+        self.regele = "=" * width
         padding = (width - len(notif)) // 2
         rprint(f'''{self.regele}
-{some_notif if some_notif else ' ' * padding + f'[white]{notif}[white]'}
+{some_notif if some_notif else ' ' * padding + notif}
 {self.regele}\n\n''')
         
     def create_model(self):
         self.config.check_config()
+        self.language.set_lang()
         self.text = TextProcessor(self.config, self, self.language)
         self.markov_chain = MarkovChain(self.config, self.text.probabilities, self, self.language)

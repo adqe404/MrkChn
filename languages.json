@@ -1,6 +1,6 @@
 {
     "en": {
-        "menu_input": "[yellow1]1[/yellow1] - Autogeneration\n[yellow1]2[/yellow1] - Manual generation\n[yellow1]3[/yellow1] - Export model\n[yellow1]4[/yellow1] - Export tokens\n{regele}\n[yellow1]101[/yellow1] - Change language\n[yellow1]102[/yellow1] - Open config.ini\n[yellow1]0[/yellow1] - Exit\n\n\n[yellow1]>>[/yellow1] [blink]Your choice:[/blink] ",
+        "menu_input": "[yellow1]1[/yellow1] - Autogeneration\n[yellow1]2[/yellow1] - Manual generation\n[yellow1]3[/yellow1] - Export model\n[yellow1]4[/yellow1] - Export tokens\n{regele}\n[yellow1]101[/yellow1] - Change language\n[yellow1]102[/yellow1] - Open config.ini\n[yellow1]103[/yellow1] - Change config values\n[yellow1]0[/yellow1] - Exit\n\n\n[yellow1]>>[/yellow1] [blink]Your choice:[/blink] ",
         "infinity_mode_input": "[yellow1]>>[/yellow1] Infinity mode?[gold1](y/n)[/gold1]: ",
         "wrong_input": "[bright_red]Incorrect input, please retry again[/bright_red]",
         "press_enter": "\n\n[bold green]Press Enter to continue...[/bold green]",
@@ -15,10 +15,15 @@
         "tokens_successfully_exported": "[bold green]Tokens successfully exported in {tokens_path}![/bold green]",
         "word": "Word",
         "probability": "Probability of a word",
-        "config_successfully_opened": "[bold green]Config succeffully opened![/bold green]"
+        "config_successfully_opened": "[bold green]Config succeffully opened![/bold green]",
+        "current_config_values": "Current config values:\n{config}",
+        "keys": "Keys",
+        "your_choice_config": "[yellow1]>>[/yellow1] Your choice(type \"exit\" or 0 for exit): ",
+        "enter_new_config_value": "[yellow1]>>[/yellow1] Enter new value for [gold1]{config_key}[/gold1]: ",
+        "config_value_successfully_updated": "[bold green]{config_key} successfully updated on {config_value}![/bold green]"
     },
     "ru": {
-        "menu_input": "[yellow1]1[/yellow1] - Автогенерация\n[yellow1]2[/yellow1] - Ручная генерация\n[yellow1]3[/yellow1] - Экспорт модели\n[yellow1]4[/yellow1] - Экспорт токенов\n{regele}\n[yellow1]101[/yellow1] - Изменить язык\n[yellow1]102[/yellow1] - Открыть config.ini\n[yellow1]0[/yellow1] - Выход\n\n\n[yellow1]>>[/yellow1] [blink]Ваш выбор:[/blink] ",
+        "menu_input": "[yellow1]1[/yellow1] - Автогенерация\n[yellow1]2[/yellow1] - Ручная генерация\n[yellow1]3[/yellow1] - Экспорт модели\n[yellow1]4[/yellow1] - Экспорт токенов\n{regele}\n[yellow1]101[/yellow1] - Изменить язык\n[yellow1]102[/yellow1] - Открыть config.ini\n[yellow1]103[/yellow1] - Изменить значения конфига\n[yellow1]0[/yellow1] - Выход\n\n\n[yellow1]>>[/yellow1] [blink]Ваш выбор:[/blink] ",
         "infinity_mode_input": "[yellow1]>>[/yellow1] Бесконечный режим?[gold1](y/n)[/gold1]: ",
         "wrong_input": "[bright_red]Некорректный ввод, попробуйте ещё раз[/bright_red]",
         "press_enter": "\n\n[bold green]Для продолжения нажмите Enter...[/bold green]",
@@ -33,7 +38,12 @@
         "tokens_successfully_exported": "[bold green]Токены успешно экспортированы в {tokens_path}![/bold green]",
         "word": "Слово",
         "probability": "Вероятность слова",
-        "config_successfully_opened": "[bold green]Конфиг успешно открыт![/bold green]"
+        "config_successfully_opened": "[bold green]Конфиг успешно открыт![/bold green]",
+        "current_config_values": "Текущие значения в конфигурации:\n{config}",
+        "keys": "Ключи",
+        "your_choice_config": "[yellow1]>>[/yellow1] Ваш выбор(type \"exit\" or 0 for exit): ",
+        "enter_new_config_value": "[yellow1]>>[/yellow1] Введите новое значение для [gold1]{config_key}[/gold1]: ",
+        "config_value_successfully_updated": "[bold green]{config_key} успешно обновлен на {config_value}![/bold green]"
     },
     "kitties": {
         "kitties": ["ฅ^•ﻌ•^ฅ", "/ᐠ – ˕ -マ", "(≖⩊≖)", "≽^- ˕ -^≼", "≽^•⩊•^≼", "(=^.⩊.^=)", "^⇀ﻌ↼^", "{`⎚⩊⎚´}", "ㅇㅅㅇ", "ᨐᵉᵒʷ", "₍^⸝⸝> ·̫ <⸝⸝ ^₎", "≽ܫ≼", "◕⩊◕", "(=＾•ﻌ•＾=)", "(=ↀωↀ=)", "(ฅ｡•ㅅ•｡ฅ)"]
