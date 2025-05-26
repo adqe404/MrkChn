@@ -1,5 +1,4 @@
 __pycache__
-*.txt
 dumped_jsons
 for tests.py
 dist
@@ -10,3 +9,4 @@ mrkchm-vol2.py
 tokens
 test_txts
 venv
+.venv
